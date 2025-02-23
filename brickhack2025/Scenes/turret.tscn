@@ -1,3 +1,36 @@
-[gd_scene format=3 uid="uid://bgqjdb54hedsc"]
+[gd_scene load_steps=5 format=3 uid="uid://cx3j0nqr3lmlc"]
 
-[node name="Turret" type="Node2D"]
+[ext_resource type="Script" path="res://Scripts/turret.gd" id="1_al04g"]
+[ext_resource type="Texture2D" uid="uid://g86y0ngudsu4" path="res://Sprites/WhitePixel.png" id="2_kutw3"]
+[ext_resource type="PackedScene" uid="uid://bydw23a0418p0" path="res://Scenes/bullet_source.tscn" id="3_y6h5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwga4"]
+size = Vector2(14, 12)
+
+[node name="Turret" type="StaticBody2D"]
+script = ExtResource("1_al04g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_uwga4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+position = Vector2(3, 0)
+scale = Vector2(10, 10)
+texture = ExtResource("2_kutw3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.34, 0.17, 0, 1)
+z_index = 2
+scale = Vector2(12.3386, 12.0526)
+texture = ExtResource("2_kutw3")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BulletSource" parent="." instance=ExtResource("3_y6h5f")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="bullet_source_finished" from="BulletSource" to="." method="_on_bullet_source_bullet_source_finished"]

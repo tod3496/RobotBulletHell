@@ -13,9 +13,11 @@ script = ExtResource("1_n00tw")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
 
 [node name="StartTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="bullet_finished" from="Bullet" to="." method="_on_bullet_bullet_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
