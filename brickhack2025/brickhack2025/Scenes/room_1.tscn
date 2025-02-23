@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dct6eppilyqpv"]
+
+[ext_resource type="PackedScene" uid="uid://cx3j0nqr3lmlc" path="res://Scenes/turret.tscn" id="1_53uh3"]
+
+[node name="Room1" type="Node2D"]
+
+[node name="Turret" parent="." instance=ExtResource("1_53uh3")]
+position = Vector2(283, 176)
+bullet_speed = 500.0
+first_shot_delay = 0.5
+
+[node name="Turret2" parent="." instance=ExtResource("1_53uh3")]
+position = Vector2(283, 147)
+bullet_speed = 500.0
+first_shot_delay = 0.5
+
+[node name="Turret3" parent="." instance=ExtResource("1_53uh3")]
+position = Vector2(283, 371)
+bullet_speed = 500.0
+first_shot_delay = 1.0
+
+[node name="Turret4" parent="." instance=ExtResource("1_53uh3")]
+position = Vector2(283, 398)
+bullet_speed = 500.0
+first_shot_delay = 1.0
