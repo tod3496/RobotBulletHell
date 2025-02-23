@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8yk537s4b6ra"]
+
+[ext_resource type="Script" path="res://Scripts/bullet_indicator.gd" id="1_nvua3"]
+
+[node name="BulletIndicator" type="Node2D"]
+script = ExtResource("1_nvua3")
+
+[node name="Line2D" type="Line2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+points = PackedVector2Array(0, 0, 400, 0)
+width = 1.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
